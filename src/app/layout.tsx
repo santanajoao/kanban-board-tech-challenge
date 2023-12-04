@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Taskban',
-}
+};
 
 export default function RootLayout({
   children,
@@ -14,5 +14,5 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>{children}</body>
     </html>
-  )
+  );
 }
