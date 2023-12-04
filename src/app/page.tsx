@@ -2,7 +2,7 @@ import { LuMenu } from 'react-icons/lu';
 
 export default function Home() {
   return (
-    <div className="bg-red-300">
+    <div className="">
       <header>
         <button type="button">
           <LuMenu />
@@ -11,7 +11,6 @@ export default function Home() {
         <h1>Taskban</h1>
       </header>
       <main>
-
       </main>
     </div>
   );
