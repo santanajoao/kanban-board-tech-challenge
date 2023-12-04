@@ -1,5 +1,14 @@
 export default function Home() {
   return (
-    <main>Home</main>
+    <div>
+      <header>
+        <button type="button"></button>
+
+        <h1>Taskban</h1>
+      </header>
+      <main>
+
+      </main>
+    </div>
   );
 }
