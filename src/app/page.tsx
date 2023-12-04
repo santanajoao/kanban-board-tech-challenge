@@ -1,8 +1,12 @@
+import { LuMenu } from 'react-icons/lu';
+
 export default function Home() {
   return (
-    <div>
+    <div className="bg-red-300">
       <header>
-        <button type="button"></button>
+        <button type="button">
+          <LuMenu />
+        </button>
 
         <h1>Taskban</h1>
       </header>
