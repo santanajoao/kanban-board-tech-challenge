@@ -13,6 +13,7 @@ const config: Config = {
         secondaryPurple: '#BFB9FF',
         primaryGray: '#6F6F6F',
         secondaryGray: '#C4C4C4',
+        terciaryGray: '#F1F0FF',
         primaryRed: '#FF7979',
         primaryYellow: '#FFBA53',
         primaryGreen: '#2BA700',
