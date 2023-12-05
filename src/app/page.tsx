@@ -24,7 +24,7 @@ export default function Home() {
   const openMenu = () => { setIsOpen(true); };
 
   return (
-    <div className="">
+    <div>
       <Drawer anchor="left" open={isOpen} variant="temporary" onClose={closeMenu}>
         <aside className="flex flex-col h-full w-fit bg-white px-2 py-3">
           <button
@@ -36,16 +36,16 @@ export default function Home() {
             <IoMdClose />
           </button>
 
-          <div className="px-9 mt-16 h-full flex flex-col">
-            <h1 className={`text-3xl ${k2d.className} text-center text-primaryPurple`}>
+          <div className="mt-16 h-full flex flex-col">
+            <span className={`text-3xl ${k2d.className} text-center text-primaryPurple`}>
               Taskban
-            </h1>
+            </span>
 
             <nav className="mt-16">
               <ul className="space-y-6">
                 {navItems.map((item) => (
                   <li key={item.text}>
-                    <button type="button" className="flex gap-x-5 p-2 w-full  ">
+                    <button type="button" className="flex gap-x-5 py-2 px-14 w-full">
                       <item.icon className="fill-primaryPurple w-6 text-2xl" />
 
                       <span>{item.text}</span>
