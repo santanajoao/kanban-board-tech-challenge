@@ -24,7 +24,7 @@ const tasks: Task[] = [
   { id: 1, title: 'Testar Navegadores', description: 'Verificar e garantir a compatibilidade da aplicação em diferentes navegadores.', endDate: '2023-11-25T00:00:00', priority: 'HIGH' },
   { id: 2, title: 'Atualizar Bibliotecas', description: 'Manter as libs atualizadas para garantir segurança e aproveitar novos recursos.', endDate: '2023-12-25T00:00:00', priority: 'LOW' },
   { id: 3, title: 'Implementar animações', description: 'Adicionar efeitos visuais e transições para melhorar a experiência do usuário.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
-  { id: 4, title: 'Implementar animações', description: 'Adicionar efeitos visuais e transições para melhorar a experiência do usuário.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
+  { id: 4, title: 'Definir armazenamento de datas', description: 'Definir uma forma eficiente de armazenar e fazer as comparações das datas.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
 ];
 
 export default function Home() {
