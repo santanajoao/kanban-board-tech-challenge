@@ -31,6 +31,7 @@ export default function Home() {
             type="button"
             onClick={closeMenu}
             className="text-2xl text-primaryPurple self-end"
+            aria-label="Fechar menu lateral"
           >
             <IoMdClose />
           </button>
@@ -62,6 +63,7 @@ export default function Home() {
           type="button"
           onClick={openMenu}
           className="text-2xl"
+          aria-label="Abrir menu lateral"
         >
           <LuMenu />
         </button>
