@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br">
-      <body className={libreFranklin.className}>{children}</body>
+    <html lang="pt-br" className="h-full">
+      <body className={`${libreFranklin.className} h-full flex flex-col`}>{children}</body>
     </html>
   );
 }

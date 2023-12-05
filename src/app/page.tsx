@@ -24,6 +24,7 @@ const tasks: Task[] = [
   { id: 1, title: 'Testar Navegadores', description: 'Verificar e garantir a compatibilidade da aplicação em diferentes navegadores.', endDate: '2023-11-25T00:00:00', priority: 'HIGH' },
   { id: 2, title: 'Atualizar Bibliotecas', description: 'Manter as libs atualizadas para garantir segurança e aproveitar novos recursos.', endDate: '2023-12-25T00:00:00', priority: 'LOW' },
   { id: 3, title: 'Implementar animações', description: 'Adicionar efeitos visuais e transições para melhorar a experiência do usuário.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
+  { id: 4, title: 'Implementar animações', description: 'Adicionar efeitos visuais e transições para melhorar a experiência do usuário.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
 ];
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
   const openMenu = () => { setIsOpen(true); };
 
   return (
-    <div>
+    <div className="h-full max-h-full flex flex-col">
       <Drawer anchor="left" open={isOpen} variant="temporary" onClose={closeMenu}>
         <aside className="flex flex-col h-full w-fit bg-white px-2 py-3">
           <button
@@ -78,11 +79,11 @@ export default function Home() {
         </button>
 
         <h1 className={`text-2xl ${k2d.className} w-full text-center mr-6`}>
-            Taskban
+          Taskban
         </h1>
       </header>
 
-      <main className="bg-terciaryGray px-3 py-4">
+      <main className="bg-terciaryGray px-3 py-4 flex-1 overflow-y-auto">
         <div className="m-auto w-fit mb-4">
           <label htmlFor="board-list-select" className="sr-only">
             Selecionar lista de cartões
