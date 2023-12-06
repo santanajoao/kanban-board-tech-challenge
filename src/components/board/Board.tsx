@@ -15,7 +15,7 @@ export default function Board() {
     <main className="bg-terciaryGray px-3 py-4 flex-1 overflow-y-auto">
       <div className="m-auto w-fit mb-4">
         <label htmlFor="board-list-select" className="sr-only">
-            Selecionar lista de cartões
+          Selecionar lista de cartões
         </label>
 
         <select className="bg-transparent p-1 font-bold text-primaryGray cursor-pointer" id="board-list-select">
@@ -31,7 +31,7 @@ export default function Board() {
           <li key={task.id}>
             <Link
               href={''}
-              className="block overflow-hidden rounded-xl focus:outline-secondaryPurple"
+              className="block overflow-hidden rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
             >
               <KanbanCard task={task} />
             </Link>
