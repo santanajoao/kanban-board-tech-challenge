@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
-import { Libre_Franklin } from 'next/font/google';
 import './globals.css';
+import { libreFranklin } from '@/fonts';
 
 export const metadata: Metadata = {
   title: 'Taskban',
 };
-
-const libreFranklin = Libre_Franklin({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,

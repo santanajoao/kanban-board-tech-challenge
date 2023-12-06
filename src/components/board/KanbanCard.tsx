@@ -9,9 +9,9 @@ type Props = {
 export default function KanbanCard({ task }: Props) {
   return (
     <div className="text-primaryGray cursor-pointer text-sm bg-white p-5 shadow-md">
-      <h3 className="text-xl font-semibold mb-3">
+      <h2 className="text-lg font-semibold mb-3">
         {task.title}
-      </h3>
+      </h2>
 
       <p className="mb-4">{task.description}</p>
 

@@ -2,10 +2,8 @@ import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { Board, Calendar, Timeline } from '@/components/icons';
 import { LiaThListSolid } from 'react-icons/lia';
-import { K2D } from 'next/font/google';
 import { Drawer } from '@mui/material';
-
-const k2d = K2D({ subsets: ['latin'], weight: ['700'] });
+import { k2d } from '@/fonts';
 
 type Props = {
   closeMenu: () => void;

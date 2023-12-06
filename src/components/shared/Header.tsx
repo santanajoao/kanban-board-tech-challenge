@@ -1,7 +1,5 @@
-import { K2D } from 'next/font/google';
+import { k2d } from '@/fonts';
 import { LuMenu } from 'react-icons/lu';
-
-const k2d = K2D({ subsets: ['latin'], weight: ['700'] });
 
 type Props = {
   openMenu: () => void;
