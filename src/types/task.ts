@@ -6,4 +6,5 @@ export type Task = {
   description: string;
   endDate: string;
   priority: TaskPriority;
+  isDone: boolean;
 };

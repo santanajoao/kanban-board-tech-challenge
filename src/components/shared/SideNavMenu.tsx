@@ -41,7 +41,7 @@ export default function SideNavMenu({ closeMenu, isOpen }: Props) {
               {navItems.map(({ text, Icon }) => (
                 <li key={text}>
                   <button type="button" className="flex gap-x-5 py-2 px-14 w-full">
-                    <Icon className="fill-primaryPurple w-6 text-2xl" />
+                    <Icon className="text-primaryPurple text-2xl" />
 
                     <span>{text}</span>
                   </button>

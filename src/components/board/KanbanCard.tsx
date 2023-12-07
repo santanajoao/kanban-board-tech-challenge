@@ -16,7 +16,7 @@ export default function KanbanCard({ task }: Props) {
       <p className="mb-4">{task.description}</p>
 
       <div className="flex justify-between items-center">
-        <CardTimeDisplay dateString={task.endDate} />
+        <CardTimeDisplay dateString={task.endDate} isDone={task.isDone} />
 
         <PriorityLabel priority={task.priority} />
       </div>

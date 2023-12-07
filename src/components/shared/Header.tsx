@@ -18,7 +18,7 @@ export default function Header({ openMenu }: Props) {
       </button>
 
       <h1 className={`text-2xl ${k2d.className} w-full text-center mr-6`}>
-          Taskban
+        Taskban
       </h1>
     </header>
   );
