@@ -1,4 +1,3 @@
-import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { Board, Calendar, Timeline } from '@/components/icons';
 import { LiaThListSolid } from 'react-icons/lia';
@@ -17,10 +16,9 @@ const navItems = [
   { Icon: Calendar, text: 'Calendário' },
 ];
 
-export default function SideNavMenu({ closeMenu, isOpen }: Props) {
+export function SideNavMenu({ closeMenu, isOpen }: Props) {
   return (
     <Drawer anchor="left" open={isOpen} variant="temporary" onClose={closeMenu}>
-
       <aside className="flex flex-col h-full w-fit bg-white px-2 py-3">
         <button
           type="button"

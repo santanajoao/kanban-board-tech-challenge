@@ -1,7 +1,6 @@
-import SvgIcon from './SvgIcon';
-import { SvgIconProps } from '@mui/material';
+import { SvgIcon, type SvgIconProps } from './SvgIcon';
 
-export default function Timeline(props: SvgIconProps) {
+export function Timeline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 25 26" {...props}>
       <g clipPath="url(#clip0_467_118)">

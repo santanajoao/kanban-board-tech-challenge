@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import Clock from '../icons/Clock';
+import { Clock } from '../icons/Clock';
 import { CircleCheck } from '../icons';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   isDone: boolean
 };
 
-export default function CardTimeDisplay({ dateString, isDone }: Props) {
+export function CardTimeDisplay({ dateString, isDone }: Props) {
   const today = new Date();
   const endDate = new Date(dateString);
   const timeIsUp = today > endDate;

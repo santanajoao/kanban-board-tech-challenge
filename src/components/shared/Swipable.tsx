@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export default function Swipable({
+export function Swipable({
   children, onSwipeLeft, onSwipeRight, minimumDistance, className,
 }: Props) {
   const touchStartX = useRef(0);

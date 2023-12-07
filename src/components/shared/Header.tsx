@@ -5,7 +5,7 @@ type Props = {
   openMenu: () => void;
 };
 
-export default function Header({ openMenu }: Props) {
+export function Header({ openMenu }: Props) {
   return (
     <header className="flex bg-primaryPurple px-3 py-2 text-white">
       <button

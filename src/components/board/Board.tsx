@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { boards } from '@/data/boards';
-import Swipable from '../shared/Swipable';
-import CardList from './CardList';
+import { Swipable} from '../shared/Swipable';
+import { CardList } from './CardList';
 
-export default function Board() {
+export function Board() {
   const [boardIndex, setBoardIndex] = useState<number>(0);
 
   const nextBoard = () => {

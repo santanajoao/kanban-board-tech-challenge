@@ -1,6 +1,6 @@
-import SvgIcon, { SvgIconProps } from './SvgIcon';
+import { SvgIcon, type SvgIconProps } from './SvgIcon';
 
-export default function CircleCheck(props: SvgIconProps) {
+export function CircleCheck(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" {...props} fill="none">
       <path d="M8 12.5L11 15.5L16 9.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

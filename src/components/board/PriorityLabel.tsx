@@ -4,7 +4,7 @@ type Props = {
   priority: TaskPriority;
 };
 
-export default function PriorityLabel({ priority }: Props) {
+export function PriorityLabel({ priority }: Props) {
   const customStyles: Record<TaskPriority, string> = {
     'LOW': 'border text-primaryGreen border-primaryGreen',
     'MEDIUM': 'border text-primaryYellow border-primaryYellow',

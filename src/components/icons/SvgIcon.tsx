@@ -1,9 +1,8 @@
-import { ComponentProps } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { type ComponentProps } from 'react';
 
 export interface SvgIconProps extends ComponentProps<'svg'> {}
 
-export default function SvgIcon({ className, ...props }: SvgIconProps) {
+export function SvgIcon({ className, ...props }: SvgIconProps) {
   return (
     <svg
       fill="currentColor"
@@ -13,7 +12,7 @@ export default function SvgIcon({ className, ...props }: SvgIconProps) {
       height="1em"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
-      className={twMerge(className)}
+      className={className}
     />
   );
 }

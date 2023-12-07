@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/shared/Header';
-import SideNavMenu from '@/components/shared/SideNavMenu';
-import Board from '@/components/board/Board';
+import { Header } from '@/components/shared/Header';
+import { SideNavMenu } from '@/components/shared/SideNavMenu';
+import { Board } from '@/components/board/Board';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);

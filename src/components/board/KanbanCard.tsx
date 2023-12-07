@@ -1,12 +1,12 @@
-import { Task } from '@/types/task';
-import PriorityLabel from './PriorityLabel';
-import CardTimeDisplay from './CardTimeDisplay';
+import type { Task } from '@/types/task';
+import { PriorityLabel } from './PriorityLabel';
+import { CardTimeDisplay } from './CardTimeDisplay';
 
 type Props = {
   task: Task;
 };
 
-export default function KanbanCard({ task }: Props) {
+export function KanbanCard({ task }: Props) {
   return (
     <div className="text-primaryGray cursor-pointer text-sm bg-white p-5 shadow-md">
       <h2 className="text-lg font-semibold mb-3">

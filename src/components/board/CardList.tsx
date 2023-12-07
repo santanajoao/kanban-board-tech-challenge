@@ -1,13 +1,12 @@
-import { Task } from '@/types/task';
+import type { Task } from '@/types/task';
 import Link from 'next/link';
-import React from 'react';
-import KanbanCard from './KanbanCard';
+import { KanbanCard } from './KanbanCard';
 
 type Props = {
   tasks: Task[];
 };
 
-export default function CardList({ tasks }: Props) {
+export function CardList({ tasks }: Props) {
   return (
     <ul className="space-y-4">
       {tasks.map((task) => (

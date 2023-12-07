@@ -1,7 +1,6 @@
-import { SvgIconProps } from '@mui/material';
-import SvgIcon from './SvgIcon';
+import { SvgIcon, type SvgIconProps } from './SvgIcon';
 
-export default function Calendar(props: SvgIconProps) {
+export function Calendar(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 25 26" {...props}>
       <path d="M19.0625 11.6875H16.4375V14.3125H19.0625V11.6875Z" width="1em" height="1em"/>
