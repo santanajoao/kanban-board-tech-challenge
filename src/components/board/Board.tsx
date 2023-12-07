@@ -22,8 +22,8 @@ export function Board() {
   return (
     <Swipable
       minimumDistance={requiredSwipeDistance}
-      onSwipeLeft={prevBoard}
-      onSwipeRight={nextBoard}
+      onSwipeLeft={nextBoard}
+      onSwipeRight={prevBoard}
       className="flex-1 overflow-y-auto flex flex-col"
     >
       <main className="bg-terciaryGray px-3 py-4 flex-1">
