@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import KanbanCard from './KanbanCard';
-import Link from 'next/link';
 import { boards } from '@/data/boards';
 import Swipable from '../shared/Swipable';
+import CardList from './CardList';
 
 export default function Board() {
   const [boardIndex, setBoardIndex] = useState<number>(0);
@@ -30,7 +29,7 @@ export default function Board() {
       <main className="bg-terciaryGray px-3 py-4 flex-1">
         <div className="m-auto w-fit mb-4">
           <label htmlFor="board-list-select" className="sr-only">
-            Selecionar lista de cartões
+            Selecionar lista de tarefas
           </label>
 
           <select
@@ -47,18 +46,7 @@ export default function Board() {
           </select>
         </div>
 
-        <ul className="space-y-4">
-          {selectedBoard.tasks.map((task) => (
-            <li key={task.id}>
-              <Link
-                href={`/card/${task.id  }`}
-                className="block overflow-hidden rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
-              >
-                <KanbanCard task={task} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <CardList tasks={selectedBoard.tasks} />
       </main>
     </Swipable>
   );
