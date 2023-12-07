@@ -1,43 +1,65 @@
-import React from 'react';
-import KanbanCard from './KanbanCard';
-import { Task } from '@/types/task';
-import Link from 'next/link';
+'use client';
 
-const tasks: Task[] = [
-  { id: 1, title: 'Testar Navegadores', description: 'Verificar e garantir a compatibilidade da aplicação em diferentes navegadores.', endDate: '2023-11-25T00:00:00', priority: 'HIGH' },
-  { id: 2, title: 'Atualizar Bibliotecas', description: 'Manter as libs atualizadas para garantir segurança e aproveitar novos recursos.', endDate: '2023-12-25T00:00:00', priority: 'LOW' },
-  { id: 3, title: 'Implementar animações', description: 'Adicionar efeitos visuais e transições para melhorar a experiência do usuário.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
-  { id: 4, title: 'Definir armazenamento de datas', description: 'Definir uma forma eficiente de armazenar e fazer as comparações das datas.', endDate: '2023-12-25T00:00:00', priority: 'MEDIUM' },
-];
+import React, { useState } from 'react';
+import KanbanCard from './KanbanCard';
+import Link from 'next/link';
+import { boards } from '@/data/boards';
+import Swipable from '../shared/Swipable';
 
 export default function Board() {
+  const [boardIndex, setBoardIndex] = useState<number>(0);
+
+  const nextBoard = () => {
+    setBoardIndex((prev) => (prev + 1) % boards.length);
+  };
+  
+  const prevBoard = () => {
+    setBoardIndex((prev) => (prev === 0 ? boards.length - 1 : prev - 1));
+  };
+  
+  const selectedBoard = boards[boardIndex];
+  const requiredSwipeDistance = 200;
+
   return (
-    <main className="bg-terciaryGray px-3 py-4 flex-1 overflow-y-auto">
-      <div className="m-auto w-fit mb-4">
-        <label htmlFor="board-list-select" className="sr-only">
-          Selecionar lista de cartões
-        </label>
+    <Swipable
+      minimumDistance={requiredSwipeDistance}
+      onSwipeLeft={prevBoard}
+      onSwipeRight={nextBoard}
+      className="flex-1 overflow-y-auto flex flex-col"
+    >
+      <main className="bg-terciaryGray px-3 py-4 flex-1">
+        <div className="m-auto w-fit mb-4">
+          <label htmlFor="board-list-select" className="sr-only">
+            Selecionar lista de cartões
+          </label>
 
-        <select className="bg-transparent p-1 font-bold text-primaryGray cursor-pointer" id="board-list-select">
-          <option value="" className="">Todo (4)</option>
-          <option value="" className="">Doing (1)</option>
-          <option value="" className="">QA (1)</option>
-          <option value="" className="">Done (1)</option>
-        </select>
-      </div>
+          <select
+            value={boardIndex}
+            className="bg-transparent p-1 font-bold text-primaryGray cursor-pointer"
+            id="board-list-select"
+            onChange={(e) => setBoardIndex(+e.target.value)}
+          >
+            {boards.map((board, index) => (
+              <option key={board.id} value={index}>
+                {board.title} ({board.tasks.length})
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <ul className="space-y-4">
-        {tasks.map((task) => (
-          <li key={task.id}>
-            <Link
-              href={''}
-              className="block overflow-hidden rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
-            >
-              <KanbanCard task={task} />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+        <ul className="space-y-4">
+          {selectedBoard.tasks.map((task) => (
+            <li key={task.id}>
+              <Link
+                href={`/card/${task.id  }`}
+                className="block overflow-hidden rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
+              >
+                <KanbanCard task={task} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </Swipable>
   );
 }

@@ -11,10 +11,10 @@ type Props = {
 };
 
 const navItems = [
-  { icon: Board, text: 'Quadro' },
-  { icon: LiaThListSolid, text: 'Lista' },
-  { icon: Timeline, text: 'Timeline' },
-  { icon: Calendar, text: 'Calendário' },
+  { Icon: Board, text: 'Quadro' },
+  { Icon: LiaThListSolid, text: 'Lista' },
+  { Icon: Timeline, text: 'Timeline' },
+  { Icon: Calendar, text: 'Calendário' },
 ];
 
 export default function SideNavMenu({ closeMenu, isOpen }: Props) {
@@ -38,12 +38,12 @@ export default function SideNavMenu({ closeMenu, isOpen }: Props) {
 
           <nav className="mt-16">
             <ul className="space-y-6">
-              {navItems.map((item) => (
-                <li key={item.text}>
+              {navItems.map(({ text, Icon }) => (
+                <li key={text}>
                   <button type="button" className="flex gap-x-5 py-2 px-14 w-full">
-                    <item.icon className="fill-primaryPurple w-6 text-2xl" />
+                    <Icon className="fill-primaryPurple w-6 text-2xl" />
 
-                    <span>{item.text}</span>
+                    <span>{text}</span>
                   </button>
                 </li>
               ))}
