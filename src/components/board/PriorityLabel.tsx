@@ -1,10 +1,12 @@
 import { TaskPriority } from '@/types/task';
+import { cn } from '@/utils/tailwind';
 
 type Props = {
   priority: TaskPriority;
+  className: string;
 };
 
-export function PriorityLabel({ priority }: Props) {
+export function PriorityLabel({ priority, className }: Props) {
   const customStyles: Record<TaskPriority, string> = {
     'LOW': 'border text-primaryGreen border-primaryGreen',
     'MEDIUM': 'border text-primaryYellow border-primaryYellow',
@@ -13,7 +15,7 @@ export function PriorityLabel({ priority }: Props) {
 
   return (
     <span
-      className={`w-20 text-center p-1 rounded-full ${customStyles[priority]}`}
+      className={cn(`w-20 inline-block text-center p-1 rounded-full ${customStyles[priority]}`, className)}
     >
       {priority}
     </span>

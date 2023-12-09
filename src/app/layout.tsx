@@ -1,12 +1,12 @@
 import { libreFranklin } from '@/fonts';
 import TaskProvider from '@/contexts/TaskContext';
 import HeaderWithNavMenu from '@/components/shared/HeaderWithNavMenu';
+import { ReactNode } from 'react';
 import './globals.css';
+import CreateCardModal from '@/components/shared/CreateCardModal';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
+export default function RootLayout({ children }: {
+  children: ReactNode,
 }) {
   return (
     <html lang="pt-br" className="h-full">
@@ -17,9 +17,7 @@ export default function RootLayout({
             
             {children}
 
-            <button className="absolute right-4 text-sm bottom-3 p-2 shadow-md rounded-lg bg-secondaryPurple text-white">
-              + Novo card
-            </button>
+            <CreateCardModal />
           </div>
         </TaskProvider>
       </body>
