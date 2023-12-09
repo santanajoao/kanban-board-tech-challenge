@@ -5,6 +5,7 @@ import { Board, Calendar, Timeline } from '@/components/icons';
 import { LiaThListSolid } from 'react-icons/lia';
 import { Drawer } from '@mui/material';
 import { k2d } from '@/fonts';
+import Link from 'next/link';
 
 type Props = {
   closeMenu: () => void;
@@ -12,10 +13,10 @@ type Props = {
 };
 
 const navItems = [
-  { Icon: Board, text: 'Quadro' },
-  { Icon: LiaThListSolid, text: 'Lista' },
-  { Icon: Timeline, text: 'Timeline' },
-  { Icon: Calendar, text: 'Calendário' },
+  { Icon: Board, text: 'Quadro', href: '/' },
+  { Icon: LiaThListSolid, text: 'Lista', href: '/list' },
+  { Icon: Timeline, text: 'Timeline', href: '/timeline' },
+  { Icon: Calendar, text: 'Calendário', href: '/calendar' },
 ];
 
 export function SideNavMenu({ closeMenu, isOpen }: Props) {
@@ -38,13 +39,16 @@ export function SideNavMenu({ closeMenu, isOpen }: Props) {
 
           <nav className="mt-16">
             <ul className="space-y-6">
-              {navItems.map(({ text, Icon }) => (
+              {navItems.map(({ text, Icon, href }) => (
                 <li key={text}>
-                  <button type="button" className="flex gap-x-5 py-2 px-14 w-full">
+                  <Link
+                    href={href}
+                    className="flex gap-x-5 py-2 px-14 w-full"
+                  >
                     <Icon className="text-primaryPurple text-2xl" />
 
                     <span>{text}</span>
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
