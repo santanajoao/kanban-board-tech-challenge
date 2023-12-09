@@ -1,3 +1,5 @@
+'use client';
+
 import { useTasks } from '@/contexts/TaskContext';
 import { TaskList } from '@/types/task';
 import { useState } from 'react';

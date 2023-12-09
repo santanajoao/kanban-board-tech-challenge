@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { CardListProps } from './CardList';

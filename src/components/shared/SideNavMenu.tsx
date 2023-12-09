@@ -1,3 +1,5 @@
+'use client';
+
 import { IoMdClose } from 'react-icons/io';
 import { Board, Calendar, Timeline } from '@/components/icons';
 import { LiaThListSolid } from 'react-icons/lia';
