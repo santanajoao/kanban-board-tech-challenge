@@ -1,38 +1,19 @@
 'use client';
 
-import { useState } from 'react';
-import { taskLists } from '@/data/board';
 import { Swipable} from '../shared/Swipable';
 import { DndCardList } from './DndCardList';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { TaskList } from '@/types/task';
+import useMobileBoard from '@/hooks/useMobileBoard';
 
 export function Board() {
-  const lists = useLocalStorage<TaskList[]>('taskLists', taskLists);
-  const [listIndex, setListIndex] = useState<number>(0);
+  const {
+    nextBoard,
+    prevBoard,
+    selectedList,
+    taskLists,
+    listIndex,
+    setListIndex,
+  } = useMobileBoard();
 
-  const nextBoard = () => {
-    setListIndex((prev) => (prev + 1) % lists.value.length);
-  };
-  
-  const prevBoard = () => {
-    setListIndex((prev) => (prev === 0 ? lists.value.length - 1 : prev - 1));
-  };
-
-  const moveCard = (from: number, to: number) => {
-    const listsJsonCopy = JSON.stringify(lists.value);
-    const listsCopy = JSON.parse(listsJsonCopy) as TaskList[];
-
-    const selectedTaskList = listsCopy[listIndex].tasks;
-
-    const hovered = selectedTaskList[to];
-    selectedTaskList[to] = selectedTaskList[from];
-    selectedTaskList[from] = hovered;
-
-    lists.set(listsCopy);
-  };
-  
-  const selectedList = lists.value[listIndex];
   const requiredSwipeDistance = 200;
 
   return (
@@ -54,7 +35,7 @@ export function Board() {
             id="board-list-select"
             onChange={(e) => setListIndex(+e.target.value)}
           >
-            {lists.value.map((list, index) => (
+            {taskLists.map((list, index) => (
               <option key={list.id} value={index}>
                 {list.title} ({list.tasks.length})
               </option>
@@ -62,7 +43,7 @@ export function Board() {
           </select>
         </div>
         
-        <DndCardList moveCard={moveCard} tasks={selectedList.tasks} />
+        <DndCardList tasks={selectedList.tasks} />
       </main>
     </Swipable>
   );

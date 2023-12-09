@@ -12,11 +12,7 @@ import { TouchBackend } from 'react-dnd-touch-backend';
 // - CardList mobile usara TouchBackend, CardList desktop usará o padrão
 // - tentar usar shadcn
 
-interface Props extends CardListProps {
-  moveCard: (to: number, from: number) => void;
-}
-
-export function DndCardList({ tasks, moveCard }: Props) {
+export function DndCardList({ tasks }: CardListProps) {
   return (
     <DndProvider
       backend={TouchBackend}
@@ -29,7 +25,7 @@ export function DndCardList({ tasks, moveCard }: Props) {
               href={`/card/${task.id  }`}
               className="block"
             >
-              <DndKanbanCard task={task} index={index} moveCard={moveCard} />
+              <DndKanbanCard task={task} index={index} />
             </Link>
           </li>
         ))}
