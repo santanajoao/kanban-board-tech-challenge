@@ -2,11 +2,11 @@ import type { Task } from '@/types/task';
 import Link from 'next/link';
 import { KanbanCard } from './KanbanCard';
 
-type Props = {
+export type CardListProps = {
   tasks: Task[];
 };
 
-export function CardList({ tasks }: Props) {
+export function CardList({ tasks }: CardListProps) {
   return (
     <ul className="space-y-4">
       {tasks.map((task) => (

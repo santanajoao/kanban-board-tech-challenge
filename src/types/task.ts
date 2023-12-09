@@ -8,3 +8,9 @@ export type Task = {
   priority: TaskPriority;
   isDone: boolean;
 };
+
+export type TaskList = {
+  id: number;
+  title: string;
+  tasks: Task[];
+};

@@ -1,5 +1,4 @@
-import type { Board } from '@/types/board';
-import type { Task } from '@/types/task';
+import type { Task, TaskList } from '@/types/task';
 
 const todoTasks: Task[] = [
   {
@@ -69,7 +68,7 @@ const doneTasks: Task[] = [
   },
 ];
 
-export const boards: Board[] = [
+export const taskLists: TaskList[] = [
   { id: 1, title: 'Todo', tasks: todoTasks },
   { id: 2, title: 'Doing', tasks: doingTasks },
   { id: 3, title: 'QA', tasks: qaTasks },
