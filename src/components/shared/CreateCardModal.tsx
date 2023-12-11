@@ -1,16 +1,18 @@
 'use client';
 
-import { TaskPriority } from '@/types/task';
-import { useRef } from 'react';
+import { TaskCreation, TaskPriority } from '@/types/task';
+import { FormEventHandler, useRef } from 'react';
 import { PriorityLabel } from '../board/PriorityLabel';
 import Input from './Controls/Input';
 import TextArea from './Controls/TextArea';
 import DatePicker from './Controls/DatePicker';
+import { useTasks } from '@/contexts/TaskContext';
 
 const priorities: TaskPriority[] = ['LOW', 'MEDIUM', 'HIGH'];
 
 export default function CreateCardModal() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const { createTask } = useTasks();
 
   const openDialog = () => {
     if (!dialogRef || !dialogRef.current) return;
@@ -24,6 +26,14 @@ export default function CreateCardModal() {
     dialogRef.current.close();
   };
 
+  const handleSubmit: FormEventHandler = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+    const fields = Object.fromEntries(formData.entries()) as TaskCreation;
+    createTask(fields);
+    closeDialog();
+  };
+
   return (
     <>
       <dialog ref={dialogRef} className="px-3 sm:px-6 sm:py-8 max-w-2xl w-full py-6 rounded-xl backdrop:bg-black/50">
@@ -31,31 +41,45 @@ export default function CreateCardModal() {
           Novo Card
         </h1>
 
-        <form className="mt-8 flex flex-col gap-3">
+        <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
           <Input
             label="Título da task"
             placeholder="Digite o título da task"
+            name="title"
+            className="peer/title"
           />
 
           <TextArea
+            name="description"
             label="Descrição"
             placeholder="Digite a descrição"
             className="h-20"
           />
 
-          <div className="flex flex-col sm:flex-row sm:justify-between">
+          <div className="flex items-center flex-col gap-3 sm:flex-row sm:justify-between">
             <DatePicker
+              name="endDate"
               label="Data final"
               placeholder="Selecione a data de entrega"
             />
 
             <fieldset className="flex gap-2 items-center">
-              <legend className="w-fit text-primaryGray text-[11px] ml-3 mb-1">Priority</legend>
+              <legend className="w-fit text-primaryGray text-[11px] mb-1">Priority</legend>
 
               {priorities.map((priority) => (
                 <label key={priority} className="h-fit cursor-pointer">
-                  <input type="radio" name="priority" className="sr-only peer"/>
-                  <PriorityLabel priority={priority} className="peer-checked:outline-secondaryPurple peer-checked:outline-2 peer-checked:outline text-sm" />
+                  <input
+                    type="radio"
+                    defaultChecked={priority === 'LOW'}
+                    name="priority"
+                    className="sr-only peer"
+                    value={priority}
+                  />
+
+                  <PriorityLabel
+                    priority={priority}
+                    className="peer-checked:outline-secondaryPurple peer-checked:outline-[3px] peer-checked:outline text-sm"
+                  />
                 </label>
               ))}
             </fieldset>

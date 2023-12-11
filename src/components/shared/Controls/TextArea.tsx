@@ -1,16 +1,12 @@
 import { cn } from '@/utils/tailwind';
-import React, { ChangeEventHandler } from 'react';
+import React, { ComponentProps } from 'react';
 
-export type TextAreaProps = {
-  placeholder?: string;
-  value?: string;
-  onChange?: ChangeEventHandler;
+interface TextAreaProps extends ComponentProps<'textarea'> {
   label: string;
-  className?: string;
 }
 
 export default function TextArea({
-  placeholder, value, onChange, label, className,
+  label, className, ...props
 }: TextAreaProps) {
   return (
     <label className="relative">
@@ -22,9 +18,7 @@ export default function TextArea({
 
       <textarea
         className={cn('border resize-none w-full border-secondaryGray rounded-md px-2 py-3 text-sm placeholder:font-semibold placeholder:text-secondaryGray', className)}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
+        {...props}
       />
     </label>
   );

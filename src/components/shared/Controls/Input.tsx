@@ -1,13 +1,12 @@
 import { cn } from '@/utils/tailwind';
 import React, { ComponentProps } from 'react';
-import { TextAreaProps } from './TextArea';
 
-interface Props extends TextAreaProps {
-  type?: ComponentProps<'input'>['type'];
+interface Props extends ComponentProps<'input'> {
+  label: string;
 }
 
 export default function Input({
-  placeholder, value, onChange, type = 'text', label, className,
+  type = 'text', label, className, ...props
 }: Props) {
   return (
     <label className="relative">
@@ -20,9 +19,7 @@ export default function Input({
       <input
         type={type}
         className={cn('border w-full border-secondaryGray rounded-md text-primaryGray px-2 py-3 text-sm placeholder:font-semibold placeholder:text-secondaryGray', className)}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        {...props}
       />
     </label>
   );

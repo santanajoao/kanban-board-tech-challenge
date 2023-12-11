@@ -1,7 +1,7 @@
 'use client';
 
 import { useTasks } from '@/contexts/TaskContext';
-import { TaskList } from '@/types/task';
+import { jsonCopy } from '@/utils/copy';
 import { useState } from 'react';
 
 export default function useMobileBoard() {
@@ -17,8 +17,7 @@ export default function useMobileBoard() {
   };
 
   const moveCard = (from: number, to: number) => {
-    const listsJsonCopy = JSON.stringify(taskLists);
-    const listsCopy = JSON.parse(listsJsonCopy) as TaskList[];
+    const listsCopy = jsonCopy(taskLists);
 
     const selectedTaskList = listsCopy[listIndex].tasks;
 

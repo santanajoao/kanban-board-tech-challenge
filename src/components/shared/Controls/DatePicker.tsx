@@ -1,11 +1,14 @@
 import { cn } from '@/utils/tailwind';
-import React from 'react';
-import { TextAreaProps } from './TextArea';
+import React, { ComponentProps } from 'react';
 import CalendarFill from '@/components/icons/CalendarFill';
 
+interface Props extends ComponentProps<'input'> {
+  label: string;
+}
+
 export default function DatePicker({
-  placeholder, value, onChange, label, className,
-}: TextAreaProps) {
+  label, className, ...props
+}: Props) {
   return (
     <label className="relative flex w-full items-center max-w-[280px]">
       <span
@@ -17,9 +20,7 @@ export default function DatePicker({
       <input
         type="date"
         className={cn('after:invisible before:invisible border w-full border-secondaryGray rounded-md text-primaryGray px-2 py-3 text-sm placeholder:font-semibold placeholder:text-secondaryGray', className)}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        {...props}
       />
 
       <CalendarFill className="right-0 mr-2 bg-white absolute text-primaryPurple text-2xl" />

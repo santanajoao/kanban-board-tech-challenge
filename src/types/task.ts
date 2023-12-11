@@ -9,6 +9,8 @@ export type Task = {
   isDone: boolean;
 };
 
+export type TaskCreation = Omit<Task, 'isDone' | 'id'>;
+
 export type TaskList = {
   id: number;
   title: string;
