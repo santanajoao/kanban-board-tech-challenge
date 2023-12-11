@@ -23,7 +23,7 @@ export default function CreateCardModal() {
   };
 
   return (
-    <section className="bg-white px-3 sm:px-6 sm:py-8 max-w-2xl w-full py-6 rounded-xl backdrop:bg-black/50">
+    <section className="bg-white px-3 sm:px-6 sm:py-8 max-w-2xl m-auto w-full py-6 rounded-xl backdrop:bg-black/50">
       <h1 className="text-primaryPurple text-center text-2xl font-semibold">
         Novo Card
       </h1>
