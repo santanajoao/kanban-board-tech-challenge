@@ -23,7 +23,7 @@ export function Board() {
       onSwipeRight={prevBoard}
       className="flex-1 overflow-y-auto flex flex-col"
     >
-      <main className="bg-terciaryGray px-3 py-4 flex-1">
+      <article className="px-3 py-4 flex-1">
         <div className="m-auto w-fit mb-4">
           <label htmlFor="board-list-select" className="sr-only">
             Selecionar lista de tarefas
@@ -44,7 +44,7 @@ export function Board() {
         </div>
         
         <DndCardList tasks={selectedList.tasks} />
-      </main>
+      </article>
     </Swipable>
   );
 }
