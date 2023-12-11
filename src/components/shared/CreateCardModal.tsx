@@ -78,13 +78,14 @@ export default function CreateCardModal() {
         </form>
       </dialog>
 
-      <button
+      <Button
+        variant="secondary-fill"
         type="button"
+        className="absolute right-4 bottom-3"
         onClick={openDialog}
-        className="absolute right-4 text-sm bottom-3 p-2 shadow-md rounded-lg bg-secondaryPurple text-white"
       >
         + Novo card
-      </button>
+      </Button> 
     </>
   );
 }
