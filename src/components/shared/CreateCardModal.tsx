@@ -71,7 +71,7 @@ export default function CreateCardModal() {
               Criar
             </Button>
 
-            <Button variant="danger-outline-rounded" type="button">
+            <Button onClick={closeDialog} variant="danger-outline-rounded" type="button">
               Cancelar
             </Button>
           </div>

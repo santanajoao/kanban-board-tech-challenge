@@ -9,9 +9,9 @@ export default function TextArea({
   label, className, ...props
 }: TextAreaProps) {
   return (
-    <label className="relative">
+    <label className="relative text-primaryGray">
       <span
-        className="absolute left-0 right-0 w-fit current px-1 text-[11px] translate-x-2 text-primaryGray -translate-y-1/2 bg-white"
+        className="absolute left-0 right-0 w-fit current px-1 text-[11px] translate-x-2 -translate-y-1/2 bg-white"
       >
         {label}
       </span>
