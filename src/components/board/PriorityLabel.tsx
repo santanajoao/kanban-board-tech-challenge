@@ -3,7 +3,7 @@ import { cn } from '@/utils/tailwind';
 
 type Props = {
   priority: TaskPriority;
-  className: string;
+  className?: string;
 };
 
 export function PriorityLabel({ priority, className }: Props) {

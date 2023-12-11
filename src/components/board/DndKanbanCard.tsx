@@ -40,7 +40,7 @@ export function DndKanbanCard({ index, task }: Props) {
   return (
     <div
       ref={dropRef}
-      className={`${dropData.isOver ? 'outline-2 outline-dashed outline-primaryPurple opacity-50' : ''} rounded-2xl transition-opacity`}
+      className={`${dropData.isOver ? 'outline-2 outline-dashed outline-primaryPurple opacity-50' : ''} rounded-xl transition-opacity`}
     >
       <div
         ref={dragRef}
