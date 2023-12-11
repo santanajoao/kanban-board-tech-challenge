@@ -7,6 +7,7 @@ import TextArea from './Controls/TextArea';
 import DatePicker from './Controls/DatePicker';
 import { useTasks } from '@/contexts/TaskContext';
 import PriorityInput from './Controls/PriorityInput';
+import Button from './Controls/Button';
 
 export default function CreateCardModal() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
@@ -66,20 +67,13 @@ export default function CreateCardModal() {
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            <button
-              type="submit"
-              className="uppercase text-white bg-primaryPurple border-2 border-primaryPurple rounded-full p-2 font-semibold"
-            >
+            <Button variant="primary-fill-rounded" type="submit">
               Criar
-            </button>
+            </Button>
 
-            <button
-              onClick={closeDialog}
-              type="button"
-              className="uppercase text-primaryRed bg-transparent border-2 border-primaryRed rounded-full p-2 font-semibold"
-            >
+            <Button variant="danger-outline-rounded" type="button">
               Cancelar
-            </button>
+            </Button>
           </div>
         </form>
       </dialog>
