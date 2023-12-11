@@ -66,12 +66,12 @@ export default function CreateCardModal() {
             <PriorityInput />
           </div>
 
-          <div className="mt-4 flex flex-col gap-2">
-            <Button variant="primary-fill-rounded" type="submit">
+          <div className="mt-4 sm:mt-10 sm:gap-4 flex flex-col sm:flex-row gap-2 justify-end">
+            <Button variant="primary-fill-rounded" className="sm:w-44" type="submit">
               Criar
             </Button>
 
-            <Button onClick={closeDialog} variant="danger-outline-rounded" type="button">
+            <Button onClick={closeDialog} className="sm:w-44" variant="danger-outline-rounded" type="button">
               Cancelar
             </Button>
           </div>
