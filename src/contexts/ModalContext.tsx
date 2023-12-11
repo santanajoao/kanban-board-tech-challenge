@@ -61,9 +61,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     <ModalContext.Provider value={values}>
       <dialog
         ref={dialogRef}
-        className="m-2 w-full bg-transparent"
+        className="m-2 w-full bg-transparent h-full"
       >
-        {Modal && <Modal />}
+        <div className="flex items-center h-full">
+          {Modal && <Modal />}
+        </div>
       </dialog>
 
       {children}

@@ -19,12 +19,12 @@ export function SideNavMenu({ closeMenu, isOpen }: Props) {
         <button
           type="button"
           onClick={closeMenu}
-          className="text-2xl m-2 text-primaryPurple self-end sm:hidden"
+          className="text-2xl m-2 text-primaryPurple self-end sm:invisible"
           aria-label="Fechar menu lateral"
         >
           <IoMdClose />
         </button>
-
+    
         <SideNavBar />
       </SheetContent>
     </Sheet>
