@@ -10,7 +10,7 @@ type Props = {
 
 export function CardTimeDisplay({ dateString, isDone }: Props) {
   const today = new Date();
-  const endDate = new Date(dateString);
+  const endDate = new Date(`${dateString}T00:00:00`);
   const timeIsUp = today > endDate;
   const commonClasses = 'flex gap-x-2 items-center';
 

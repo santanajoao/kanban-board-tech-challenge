@@ -1,14 +1,12 @@
 'use client';
 
-import { TaskCreation, TaskPriority } from '@/types/task';
+import { TaskCreation } from '@/types/task';
 import { FormEventHandler, useRef } from 'react';
-import { PriorityLabel } from '../board/PriorityLabel';
 import Input from './Controls/Input';
 import TextArea from './Controls/TextArea';
 import DatePicker from './Controls/DatePicker';
 import { useTasks } from '@/contexts/TaskContext';
-
-const priorities: TaskPriority[] = ['LOW', 'MEDIUM', 'HIGH'];
+import PriorityInput from './Controls/PriorityInput';
 
 export default function CreateCardModal() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
@@ -56,33 +54,15 @@ export default function CreateCardModal() {
             className="h-20"
           />
 
-          <div className="flex items-center flex-col gap-3 sm:flex-row sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
             <DatePicker
               name="endDate"
+              classes={{ container: 'sm:max-w-[280px] w-full' }}
               label="Data final"
               placeholder="Selecione a data de entrega"
             />
 
-            <fieldset className="flex gap-2 items-center">
-              <legend className="w-fit text-primaryGray text-[11px] mb-1">Priority</legend>
-
-              {priorities.map((priority) => (
-                <label key={priority} className="h-fit cursor-pointer">
-                  <input
-                    type="radio"
-                    defaultChecked={priority === 'LOW'}
-                    name="priority"
-                    className="sr-only peer"
-                    value={priority}
-                  />
-
-                  <PriorityLabel
-                    priority={priority}
-                    className="peer-checked:outline-secondaryPurple peer-checked:outline-[3px] peer-checked:outline text-sm"
-                  />
-                </label>
-              ))}
-            </fieldset>
+            <PriorityInput />
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
