@@ -8,7 +8,7 @@ Acesse aqui o repositório do [desafio](https://github.com/HeroCodeBR/01-tech-ch
 
 ## Status
 
-O projeto ainda não está finalizado e até o momento contém apenas as funcionalidades, layout e estilização para dispositivos movéis
+O projeto ainda está em desenvolvimento.
 
 ## Funcionalidades
 
