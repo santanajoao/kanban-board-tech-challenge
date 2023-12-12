@@ -14,7 +14,7 @@ export function CardList({ taskList, children }: CardListProps) {
       {taskList.tasks.map((task, index) => (
         <li key={task.id}>
           <Link
-            href={`/card/${task.id  }`}
+            href="#"
             className="block rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
           >
             {children ? children(task, index) : <KanbanCard task={task} />}
