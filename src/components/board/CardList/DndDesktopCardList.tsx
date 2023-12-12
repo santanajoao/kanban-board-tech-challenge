@@ -37,7 +37,7 @@ export function DndDesktopCardList({ taskList, listIndex }: Props) {
     <section
       ref={dropRef}
       key={taskList.id}
-      className={`p-4 shrink-0 min-w-[320px] shadow-lg h-fit rounded-3xl ${dropData.isOver ? 'bg-red-300' : ''}`}
+      className={`p-4 shrink-0 min-w-[320px] shadow-lg h-fit rounded-3xl transition-colors ${dropData.isOver ? 'bg-secondaryPurple' : ''}`}
     >
       <h2 className="text-primaryGray text-lg font-semibold mb-8">
         {taskList.title} ({taskList.tasks.length})
