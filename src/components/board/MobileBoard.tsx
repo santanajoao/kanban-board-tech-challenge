@@ -49,7 +49,7 @@ export function MobileBoard() {
             </select>
           </div>
           
-          <DndCardList listIndex={listIndex} tasks={selectedList.tasks} />
+          <DndCardList listIndex={listIndex} taskList={selectedList} />
         </article>
       </Swipable>
     </DndProvider>

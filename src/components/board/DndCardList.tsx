@@ -8,10 +8,9 @@ interface Props extends CardListProps {
   listIndex: number;
 }
 
-export function DndCardList({ tasks, listIndex }: Props) {
-
+export function DndCardList({ taskList, listIndex }: Props) {
   return (
-    <CardList tasks={tasks}>
+    <CardList taskList={taskList}>
       {(task, index) => (
         <DndKanbanCard task={task} listIndex={listIndex} cardIndex={index} />
       )}
