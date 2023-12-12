@@ -3,9 +3,9 @@
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useEffect, useState } from 'react';
 import { SideNavMenu, SideNavMenuProps } from './SideNavMenu';
-import NavBar from './NavBar';
+import { NavBar } from './NavBar';
 
-export default function SideBar(props: SideNavMenuProps) {
+export function SideBar(props: SideNavMenuProps) {
   const isDesktop = useMediaQuery('(min-width: 640px)');
   const [showDesktop, setShowDesktop] = useState(false);
   

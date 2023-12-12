@@ -1,9 +1,8 @@
 'use client';
 
 import { IoMdClose } from 'react-icons/io';
-import { Sheet, SheetContent } from '../ui/sheet';
-
-import NavBar from './NavBar';
+import { Sheet, SheetContent } from '../../ui/sheet';
+import { NavBar } from './NavBar';
 
 export type SideNavMenuProps = {
   closeMenu: () => void;

@@ -2,15 +2,15 @@
 
 import { TaskCreation } from '@/types/task';
 import { FormEventHandler } from 'react';
-import Input from './Controls/Input';
-import TextArea from './Controls/TextArea';
-import DatePicker from './Controls/DatePicker';
+import Input from '../Controls/Input';
+import TextArea from '../Controls/TextArea';
+import DatePicker from '../Controls/DatePicker';
 import { useTasks } from '@/contexts/TaskContext';
-import PriorityInput from './Controls/PriorityInput';
-import Button from './Controls/Button';
+import PriorityInput from '../Controls/PriorityInput';
+import Button from '../Controls/Button';
 import { useModal } from '@/contexts/ModalContext';
 
-export default function CreateCardModal() {
+export function CreateCardModal() {
   const { createTask } = useTasks();
   const { closeModal } = useModal();
 

@@ -1,6 +1,6 @@
-import { PriorityLabel } from '@/components/board/PriorityLabel';
 import { TaskPriority } from '@/types/task';
 import { ComponentProps } from 'react';
+import { PriorityLabel } from '../PriorityLabel';
 
 const priorities: TaskPriority[] = ['LOW', 'MEDIUM', 'HIGH'];
 

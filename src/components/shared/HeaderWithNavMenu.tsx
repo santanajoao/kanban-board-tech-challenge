@@ -2,13 +2,13 @@
 
 import { ReactNode, useState } from 'react';
 import { Header } from './Header';
-import SideBar from './SideBar';
+import { SideBar } from './SideBar/SideBar';
 
 type Props = {
   children: ReactNode;
 }
 
-export default function HeaderWithNavMenu({ children }: Props) {
+export function HeaderWithNavMenu({ children }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => { setIsOpen(false); };

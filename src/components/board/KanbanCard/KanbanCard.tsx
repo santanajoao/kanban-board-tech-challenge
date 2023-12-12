@@ -1,5 +1,5 @@
 import type { Task } from '@/types/task';
-import { PriorityLabel } from './PriorityLabel';
+import { PriorityLabel } from '../../shared/PriorityLabel';
 import { CardTimeDisplay } from './CardTimeDisplay';
 
 export type KanbanCardProps = {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import DesktopBoard from './DesktopBoard';
+import { DesktopBoard } from './DesktopBoard';
 import { MobileBoard } from './MobileBoard';
 import { useEffect, useState } from 'react';
 

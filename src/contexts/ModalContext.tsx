@@ -1,6 +1,6 @@
 'use client';
 
-import CreateCardModal from '@/components/shared/CreateCardModal';
+import { CreateCardModal } from '@/components/shared/Modals/CreateCardModal';
 import { ReactNode, createContext, useContext, useRef, useState } from 'react';
 
 const modals = {

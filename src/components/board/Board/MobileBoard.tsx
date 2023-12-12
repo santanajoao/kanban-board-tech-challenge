@@ -1,8 +1,8 @@
 'use client';
 
 import { DndProvider } from 'react-dnd';
-import { Swipable} from '../shared/Swipable';
-import { DndCardList } from './DndCardList';
+import { Swipable} from '../../shared/Swipable';
+import { DndCardList } from '../CardList/DndCardList';
 import useMobileBoard from '@/hooks/useMobileBoard';
 import { TouchBackend } from 'react-dnd-touch-backend';
 

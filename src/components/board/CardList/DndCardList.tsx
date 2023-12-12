@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { CardList, CardListProps } from './CardList';
-import { DndKanbanCard } from './DndKanbanCard';
+import { DndKanbanCard } from '../KanbanCard/DndKanbanCard';
 
 interface Props extends CardListProps {
   listIndex: number;

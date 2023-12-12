@@ -1,7 +1,7 @@
 'use client';
 
-import { Clock } from '../icons/Clock';
-import { CircleCheck } from '../icons';
+import { Clock } from '../../icons/Clock';
+import { CircleCheck } from '../../icons';
 
 type Props = {
   dateString: string;

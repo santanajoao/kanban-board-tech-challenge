@@ -3,9 +3,9 @@
 import { useTasks } from '@/contexts/TaskContext';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import DndDesktopCardList from './DndDesktopCardList';
+import { DndDesktopCardList } from '../CardList/DndDesktopCardList';
 
-export default function DesktopBoard() {
+export function DesktopBoard() {
   const { taskLists } = useTasks();
 
   return (
