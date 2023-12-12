@@ -11,7 +11,7 @@ export function OpenTaskCreationModal() {
       variant="secondary-fill"
       type="button"
       onClick={() => openModal('createCard')}
-      className="absolute right-4 bottom-3 sm:hidden"
+      className="absolute p-3 right-4 bottom-3 sm:hidden"
     >
       + Novo card
     </Button>

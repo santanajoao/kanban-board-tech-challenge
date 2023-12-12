@@ -13,7 +13,7 @@ const modals = {
 type ModalName = keyof typeof modals;
 
 type ContextValues = {
-  openModal(modalName: ModalName, data: unknown): void;
+  openModal(modalName: ModalName, data?: unknown): void;
   closeModal(modalName: ModalName): void;
 };
 
