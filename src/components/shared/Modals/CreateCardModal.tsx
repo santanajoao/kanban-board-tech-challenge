@@ -30,6 +30,7 @@ export function CreateCardModal() {
 
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
         <Input
+          variant="outline-fieldset"
           label="Título da task"
           placeholder="Digite o título da task"
           name="title"
@@ -37,6 +38,7 @@ export function CreateCardModal() {
         />
 
         <TextArea
+          variant="outline-fieldset"
           name="description"
           label="Descrição"
           placeholder="Digite a descrição"
@@ -45,6 +47,7 @@ export function CreateCardModal() {
 
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
           <DatePicker
+            variant="outline-fieldset"
             name="endDate"
             classes={{ container: 'sm:max-w-[280px] w-full' }}
             label="Data final"

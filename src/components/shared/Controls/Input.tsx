@@ -1,24 +1,25 @@
 import { cn } from '@/utils/tailwind';
 import React, { ComponentProps } from 'react';
+import { FieldsetInputProps, inputVariants } from './variants';
 
-interface Props extends ComponentProps<'input'> {
-  label: string;
-}
+interface Props extends ComponentProps<'input'>, FieldsetInputProps {}
 
 export default function Input({
-  type = 'text', label, className, ...props
+  type = 'text', label, className, variant, ...props
 }: Props) {
+  const variantClass = variant && inputVariants[variant];
+
   return (
-    <label className="relative">
+    <label className={cn(variantClass?.container)}>
       <span
-        className="absolute left-0 right-0 w-fit current px-1 text-[11px] translate-x-2 text-primaryGray -translate-y-1/2 bg-white"
+        className={cn(variantClass?.label)}
       >
         {label}
       </span>
 
       <input
         type={type}
-        className={cn('border w-full border-secondaryGray rounded-md text-primaryGray px-2 py-3 text-sm placeholder:font-semibold placeholder:text-secondaryGray', className)}
+        className={cn(variantClass?.input, className)}
         {...props}
       />
     </label>

@@ -1,24 +1,16 @@
 'use client';
 
 import useBoard from '@/hooks/useBoard';
-import { CardListProps } from './CardList';
-import { DndCardList } from './DndCardList';
+import { DndCardList, DndCardListProps } from './DndCardList';
 import { useDrop } from 'react-dnd';
+import { DndCardItem } from '@/types/card';
 
-interface Props extends CardListProps {
-  listIndex: number;
-}
-
-type ItemType = {
-  type: string;
-  cardIndex: number;
-  listIndex: number;
-};
+interface Props extends DndCardListProps {}
 
 export function DndDesktopCardList({ taskList, listIndex }: Props) {
   const { moveCard } = useBoard();
 
-  const handleDrop = (item: ItemType) => {
+  const handleDrop = (item: DndCardItem) => {
     const cardDragIndex = item.cardIndex;
     const listDragIndex = item.listIndex;    
     if (listDragIndex === listIndex) return;

@@ -3,17 +3,12 @@
 import { useDrag, useDrop } from 'react-dnd';
 import { KanbanCard, KanbanCardProps } from './KanbanCard';
 import useMobileBoard from '@/hooks/useMobileBoard';
+import { DndCardItem } from '@/types/card';
 
 interface Props extends KanbanCardProps {
   cardIndex: number;
   listIndex: number;
 }
-
-type ItemType = {
-  type: string;
-  cardIndex: number;
-  listIndex: number;
-};
 
 export function DndKanbanCard({ cardIndex, task, listIndex }: Props) {
   const { moveCard } = useMobileBoard();
@@ -24,7 +19,7 @@ export function DndKanbanCard({ cardIndex, task, listIndex }: Props) {
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),
   });
 
-  const handleDrop = (item: ItemType) => {
+  const handleDrop = (item: DndCardItem) => {
     const cardDragIndex = item.cardIndex;
     const listDragIndex = item.listIndex;
     if (cardDragIndex === cardIndex && listDragIndex === listIndex) return;

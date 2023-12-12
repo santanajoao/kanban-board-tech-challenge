@@ -8,11 +8,11 @@ const variants = {
 };
 
 interface Props extends ComponentProps<'button'> {
-  variant: keyof typeof variants;
+  variant?: keyof typeof variants;
 }
 
 export default function Button({ className, variant, ...props }: Props) {
-  const variantClass = variants[variant];
+  const variantClass = variant && variants[variant];
   return (
     <button
       className={cn('p-2 font-semibold', variantClass, className)}

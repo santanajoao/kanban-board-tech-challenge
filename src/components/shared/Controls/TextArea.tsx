@@ -1,23 +1,24 @@
 import { cn } from '@/utils/tailwind';
 import React, { ComponentProps } from 'react';
+import { FieldsetInputProps, inputVariants } from './variants';
 
-interface TextAreaProps extends ComponentProps<'textarea'> {
-  label: string;
-}
+interface TextAreaProps extends ComponentProps<'textarea'>, FieldsetInputProps {}
 
 export default function TextArea({
-  label, className, ...props
+  label, className, variant, ...props
 }: TextAreaProps) {
+  const variantClass = variant && inputVariants[variant];
+  
   return (
-    <label className="relative text-primaryGray">
+    <label className={cn(variantClass?.container)}>
       <span
-        className="absolute left-0 right-0 w-fit current px-1 text-[11px] translate-x-2 -translate-y-1/2 bg-white"
+        className={cn(variantClass?.label)}
       >
         {label}
       </span>
 
       <textarea
-        className={cn('border resize-none w-full border-secondaryGray rounded-md px-2 py-3 text-sm placeholder:font-semibold placeholder:text-secondaryGray', className)}
+        className={cn('resize-none', variantClass?.input, className)}
         {...props}
       />
     </label>
