@@ -2,6 +2,7 @@
 
 import { Clock } from '../../icons/Clock';
 import { CircleCheck } from '../../icons';
+import { dateStringToDate } from '@/utils/date';
 
 type Props = {
   dateString: string;
@@ -10,7 +11,7 @@ type Props = {
 
 export function CardTimeDisplay({ dateString, isDone }: Props) {
   const today = new Date();
-  const endDate = new Date(`${dateString}T00:00:00`);
+  const endDate = dateStringToDate(dateString);
   const timeIsUp = today > endDate;
   const commonClasses = 'flex gap-x-2 items-center';
 

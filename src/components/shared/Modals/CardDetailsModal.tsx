@@ -6,6 +6,7 @@ import { PriorityLabel } from '../PriorityLabel';
 import { TaskList } from '@/types/task';
 import { FaArrowsAltH } from 'react-icons/fa';
 import { Title } from '../Title';
+import { dateStringToDate } from '@/utils/date';
 
 type Props = {
   taskList: TaskList;
@@ -33,7 +34,9 @@ export default function CardDetailsModal({ taskList, cardIndex }: Props) {
       <div className="flex items-center mt-2 gap-x-5 gap-y-2 justify-between flex-wrap">
         <section>
           <Title as="h2" variant="definition-small">Data final</Title>
-          <time className="font-semibold">{task.endDate}</time>
+          <time className="font-semibold">
+            {dateStringToDate(task.endDate).toLocaleDateString()}
+          </time>
         </section>
 
         <section className="flex items-center">
