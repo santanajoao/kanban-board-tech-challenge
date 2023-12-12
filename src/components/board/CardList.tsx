@@ -5,7 +5,7 @@ import { KanbanCard } from './KanbanCard';
 
 export type CardListProps = {
   tasks: Task[];
-  children?: (task: Task, index: number) => ReactNode;
+  children?: (task: Task, cardIndex: number) => ReactNode;
 };
 
 export function CardList({ tasks, children }: CardListProps) {

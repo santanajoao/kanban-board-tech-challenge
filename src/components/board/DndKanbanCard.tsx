@@ -5,30 +5,32 @@ import { KanbanCard, KanbanCardProps } from './KanbanCard';
 import useMobileBoard from '@/hooks/useMobileBoard';
 
 interface Props extends KanbanCardProps {
-  index: number;
+  cardIndex: number;
+  listIndex: number;
 }
 
 type ItemType = {
   type: string;
-  index: number;
+  cardIndex: number;
+  listIndex: number;
 };
 
-export function DndKanbanCard({ index, task }: Props) {
-  const { moveCard} = useMobileBoard();
+export function DndKanbanCard({ cardIndex, task, listIndex }: Props) {
+  const { moveCard } = useMobileBoard();
   
   const [dragData, dragRef] = useDrag({
     type: 'CARD',
-    item: { type: 'CARD', index },
+    item: { type: 'CARD', cardIndex, listIndex },
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),
   });
 
   const handleDrop = (item: ItemType) => {
-    const dragIndex = item.index;
-    const dropIndex = index;
-    if (dragIndex === dropIndex) return;
+    const cardDragIndex = item.cardIndex;
+    const listDragIndex = item.listIndex;
+    if (cardDragIndex === cardIndex && listDragIndex === listIndex) return;
 
-    moveCard(dragIndex, dropIndex);
-    item.index = dropIndex;
+    moveCard(listDragIndex, listIndex, cardDragIndex, cardIndex);
+    item.cardIndex = cardIndex;
   };
 
   const [dropData, dropRef] = useDrop({

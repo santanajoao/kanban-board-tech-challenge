@@ -11,13 +11,13 @@ export default function DesktopBoard() {
   return (
     <DndProvider backend={HTML5Backend}>
       <ul className="flex px-3 py-4 flex-1 gap-4">
-        {taskLists.map((taskList) => (
+        {taskLists.map((taskList, index) => (
           <section key={taskList.id} className="p-4 shadow-lg h-fit rounded-3xl">
             <h2 className="text-primaryGray text-lg font-semibold mb-8">
               {taskList.title} ({taskList.tasks.length})
             </h2>
             
-            <DndCardList tasks={taskList.tasks} />
+            <DndCardList listIndex={index} tasks={taskList.tasks} />
           </section>
         ))}
       </ul>
