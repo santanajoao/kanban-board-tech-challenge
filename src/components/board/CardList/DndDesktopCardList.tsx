@@ -1,3 +1,5 @@
+'use client';
+
 import useBoard from '@/hooks/useBoard';
 import { CardListProps } from './CardList';
 import { DndCardList } from './DndCardList';

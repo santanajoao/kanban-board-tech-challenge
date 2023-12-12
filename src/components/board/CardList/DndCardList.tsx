@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { CardList, CardListProps } from './CardList';
 import { DndKanbanCard } from '../KanbanCard/DndKanbanCard';
