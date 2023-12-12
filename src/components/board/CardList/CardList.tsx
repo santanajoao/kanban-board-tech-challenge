@@ -1,7 +1,9 @@
+'use client';
+
 import type { Task, TaskList } from '@/types/task';
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import { KanbanCard } from '../KanbanCard/KanbanCard';
+import { useModal } from '@/contexts/ModalContext';
 
 export type CardListProps = {
   taskList: TaskList;
@@ -9,16 +11,19 @@ export type CardListProps = {
 };
 
 export function CardList({ taskList, children }: CardListProps) {
+  const { openModal } = useModal();
+
   return (
     <ul className="space-y-4 w-full">
       {taskList.tasks.map((task, index) => (
         <li key={task.id}>
-          <Link
-            href="#"
-            className="block rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple"
+          <button
+            onClick={() => openModal('cardDetails', { taskList, cardIndex: index })}
+            type="button"
+            className="block rounded-xl outline-2 outline outline-transparent focus:outline-secondaryPurple hover:outline-secondaryPurple w-full text-left"
           >
             {children ? children(task, index) : <KanbanCard task={task} />}
-          </Link>
+          </button>
         </li>
       ))}
     </ul>

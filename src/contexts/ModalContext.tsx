@@ -1,16 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
+import CardDetailsModal from '@/components/shared/Modals/CardDetailsModal';
 import { CreateCardModal } from '@/components/shared/Modals/CreateCardModal';
 import { ReactNode, createContext, useContext, useRef, useState } from 'react';
 
 const modals = {
   'createCard': CreateCardModal,
+  'cardDetails': CardDetailsModal,
 };
 
 type ModalName = keyof typeof modals;
 
 type ContextValues = {
-  openModal(modalName: ModalName): void;
+  openModal(modalName: ModalName, data: unknown): void;
   closeModal(modalName: ModalName): void;
 };
 
@@ -27,6 +30,7 @@ export function useModal(): ContextValues {
 export function ModalProvider({ children }: { children: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [modal, setModal] = useState<ModalName | null>(null);
+  const [modalData, setModalData] = useState<Record<string, unknown> | null>(null);
 
   const openDialog = () => {
     if (!dialogRef || !dialogRef.current) return;
@@ -45,7 +49,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setModal(null);
   };
 
-  const openModal = (modalName: ModalName) => {
+  const openModal = (modalName: ModalName, data?: Record<string, unknown>) => {
+    setModalData(data ?? null);
     setModal(modalName);
     openDialog();
   };
@@ -61,10 +66,10 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     <ModalContext.Provider value={values}>
       <dialog
         ref={dialogRef}
-        className="m-2 w-full bg-transparent h-full"
+        className="w-full bg-transparent h-full"
       >
         <div className="flex items-center h-full">
-          {Modal && <Modal />}
+          {Modal && <Modal {...(modalData as any)} />}
         </div>
       </dialog>
 

@@ -4,7 +4,9 @@ import React, { ComponentProps } from 'react';
 const variants = {
   'primary-fill-rounded': 'text-white  uppercase rounded-full bg-primaryPurple border-2 border-primaryPurple',
   'danger-outline-rounded': 'uppercase rounded-full text-primaryRed bg-transparent border-2 border-primaryRed',
-  'secondary-fill': 'text-white text-sm shadow-md rounded-lg bg-secondaryPurple'
+  'neutral-outline-rounded': 'uppercase rounded-full text-primaryGray bg-transparent border-2 border-primaryGray',
+  'secondary-fill-rounded': 'text-white text-sm shadow-md rounded-full bg-secondaryPurple',
+  'secondary-fill': 'text-white text-sm shadow-md rounded-lg bg-secondaryPurple',
 };
 
 interface Props extends ComponentProps<'button'> {
