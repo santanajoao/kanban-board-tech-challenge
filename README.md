@@ -29,6 +29,8 @@ Para proporcionar uma melhor experiência de usuário o projeto foi desenvolvido
 - typescript
 - tailwind
 - react-dnd
+- zod
+- react-hook-forms
 - shadcn
 - eslint
 - react icons
