@@ -11,7 +11,7 @@ interface Props extends ComponentProps<'button'> {
   variant?: keyof typeof variants;
 }
 
-export default function Button({ className, variant, ...props }: Props) {
+export function Button({ className, variant, ...props }: Props) {
   const variantClass = variant && variants[variant];
   return (
     <button

@@ -1,7 +1,7 @@
 'use client';
 
 import { useModal } from '@/contexts/ModalContext';
-import Button from '../Controls/Button';
+import { Button } from '../Controls/Button';
 
 export function OpenTaskCreationModal() {
   const { openModal } = useModal();

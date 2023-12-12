@@ -2,7 +2,7 @@
 
 import { k2d } from '@/fonts';
 import { LuMenu } from 'react-icons/lu';
-import Button from './Controls/Button';
+import { Button } from './Controls/Button';
 import { useModal } from '@/contexts/ModalContext';
 
 type Props = {
