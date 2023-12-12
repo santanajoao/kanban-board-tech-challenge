@@ -8,7 +8,7 @@ export type KanbanCardProps = {
 
 export function KanbanCard({ task }: KanbanCardProps) {
   return (
-    <div className="text-primaryGray cursor-pointer text-sm bg-white p-5 shadow-md">
+    <div className="text-primaryGray cursor-pointer text-sm bg-white p-5 shadow-md sm:w-80">
       <h2 className="text-lg font-semibold mb-3">
         {task.title}
       </h2>

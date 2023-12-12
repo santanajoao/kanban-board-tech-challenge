@@ -12,7 +12,7 @@ const navItems = [
 
 export default function NavBar() {
   return (
-    <aside className="flex flex-col h-full bg-white px-2 py-3">
+    <aside className="w-64 flex flex-col h-full bg-white px-2 py-3">
       <span className={`text-3xl ${k2d.className} mt-16 text-center text-primaryPurple`}>
         Taskban
       </span>
