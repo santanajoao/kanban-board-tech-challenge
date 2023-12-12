@@ -1,5 +1,7 @@
 # Quadro Kanban
 
+<img src="images/screenshot.png" alt="Capturas de tela em um dispositivo móvel e em um computador">
+
 ## Sobre
 
 Esse projeto foi feito para um desafio técnico da [HeroCode](https://github.com/HeroCodeBR/). O objetivo é criar um quadro kanban que exibe listas e seus cards/tarefas que podem ser criados e movidos.
