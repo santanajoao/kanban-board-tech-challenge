@@ -3,16 +3,13 @@
 import { CardTimeDisplay } from '@/components/board/KanbanCard/CardTimeDisplay';
 import { PriorityLabel } from '@/components/shared/PriorityLabel';
 import { useTasks } from '@/contexts/TaskContext';
-import { dateStringToDate } from '@/utils/date';
 
 export default function ListPage() {
   const { taskLists } = useTasks();
 
-  const t = taskLists.flatMap((taskList) =>
+  const tasks = taskLists.flatMap((taskList) =>
     taskList.tasks.map((task) =>({ ...task, taskListTitle: taskList.title })),
   );
-
-  const tasks = [...t, ...t, ...t];
 
   return (
     <div className="h-full p-1">
