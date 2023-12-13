@@ -1,5 +1,6 @@
 'use client';
 
+import { CardTimeDisplay } from '@/components/board/KanbanCard/CardTimeDisplay';
 import { PriorityLabel } from '@/components/shared/PriorityLabel';
 import { useTasks } from '@/contexts/TaskContext';
 import { dateStringToDate } from '@/utils/date';
@@ -32,7 +33,9 @@ export default function ListPage() {
               <td className="border py-1 px-2">
                 <PriorityLabel className="text-sm" priority={task.priority} />
               </td>
-              <td className="border py-1 px-2">{dateStringToDate(task.endDate).toLocaleDateString()}</td>
+              <td className="border py-1 px-2">
+                <CardTimeDisplay dateString={task.endDate} isDone={task.isDone} />
+              </td>
             </tr>
           ))}
         </tbody>
