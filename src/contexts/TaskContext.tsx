@@ -10,6 +10,7 @@ type ContextValues = {
   taskLists: TaskList[];
   setTaskLists: (value: TaskList[]) => void;
   createTask: (task: TaskCreation) => void;
+  editTask: (taskId: number, cardId: number, data: TaskCreation) => void;
 };
 
 const TaskContext = createContext<ContextValues | null>(null);
@@ -41,10 +42,20 @@ export default function TaskProvider({ children }: { children: ReactNode }) {
     lists.set(listsCopy);
   };
 
+  const editTask = (listId: number, cardId: number, data: TaskCreation) => {
+    const taskList = lists.value.find((list) => list.id === listId)!;
+    const taskIndex = taskList.tasks.findIndex((task) => task.id === cardId)!;
+    const task = taskList.tasks[taskIndex];
+
+    const editedTask: Task = { ...task, ...data };
+    taskList.tasks[taskIndex] = editedTask;
+  };
+
   const values: ContextValues = {
     taskLists: lists.value,
     setTaskLists,
     createTask,
+    editTask,
   };
 
   return (

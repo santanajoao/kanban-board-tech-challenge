@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function CardDetailsModal({ taskList, cardIndex }: Props) {
-  const { closeModal } = useModal();
+  const { closeModal, openModal } = useModal();
   const task = taskList.tasks[cardIndex];
 
   return (
@@ -60,7 +60,14 @@ export default function CardDetailsModal({ taskList, cardIndex }: Props) {
       </div>
 
       <div className="mt-6 sm:mt-10 sm:gap-4 flex flex-col sm:flex-row gap-2 justify-end">
-        <Button variant="primary-fill-rounded" className="sm:w-44">Editar</Button>
+        <Button
+          variant="primary-fill-rounded"
+          className="sm:w-44"
+          type="button"
+          onClick={() => openModal('editCard', { taskList, cardIndex })}
+        >
+          Editar
+        </Button>
 
         <Button
           type="button"

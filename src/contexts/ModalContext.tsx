@@ -3,10 +3,12 @@
 
 import CardDetailsModal from '@/components/shared/Modals/CardDetailsModal';
 import { CreateCardModal } from '@/components/shared/Modals/CreateCardModal';
+import { EditCardModal } from '@/components/shared/Modals/EditCardModal';
 import { ReactNode, createContext, useContext, useRef, useState } from 'react';
 
 const modals = {
   'createCard': CreateCardModal,
+  'editCard': EditCardModal,
   'cardDetails': CardDetailsModal,
 };
 

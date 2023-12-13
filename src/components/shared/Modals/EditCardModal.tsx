@@ -1,6 +1,6 @@
 'use client';
 
-import { TaskCreation } from '@/types/task';
+import { TaskCreation, TaskList } from '@/types/task';
 import { useTasks } from '@/contexts/TaskContext';
 import { Button } from '../Controls/Button';
 import { useModal } from '@/contexts/ModalContext';
@@ -10,9 +10,15 @@ import { createTaskSchema } from '@/schemas/task';
 import { Title } from '../Title';
 import { Section, ButtonsContainer, Fields, Form } from './CardForm';
 
-export function CreateCardModal() {
-  const { createTask } = useTasks();
-  const { closeModal } = useModal();
+type Props = {
+  taskList: TaskList;
+  cardIndex: number;
+};
+
+export function EditCardModal({ taskList, cardIndex }: Props) {
+  const { editTask } = useTasks();
+  const { openModal } = useModal();
+  const task = taskList.tasks[cardIndex];
 
   const {
     register,
@@ -20,26 +26,32 @@ export function CreateCardModal() {
     formState: { errors },
   } = useForm<TaskCreation>({
     resolver: zodResolver(createTaskSchema),
+    defaultValues: task,
   });
 
   const onSubmit = (data: TaskCreation) => {
-    createTask(data);
-    closeModal('createCard');
+    editTask(taskList.id, task.id, data);
+    openModal('cardDetails', { taskList, cardIndex });
   };
   
   return (
     <Section>
-      <Title variant="primary">Novo Card</Title>
-
+      <Title variant="primary">Editar Card</Title>
+      
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Fields errors={errors} register={register} />
 
         <ButtonsContainer>
           <Button variant="primary-fill-rounded" className="sm:w-44" type="submit">
-            Criar
+            Salvar
           </Button>
 
-          <Button onClick={() => closeModal('createCard')} className="sm:w-44" variant="danger-outline-rounded" type="button">
+          <Button
+            onClick={() => openModal('cardDetails', { taskList, cardIndex })}
+            className="sm:w-44"
+            variant="danger-outline-rounded"
+            type="button"
+          >
             Cancelar
           </Button>
         </ButtonsContainer>
