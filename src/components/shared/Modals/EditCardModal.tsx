@@ -18,8 +18,9 @@ type Props = {
 export function EditCardModal({ taskList, cardIndex }: Props) {
   const { editTask } = useTasks();
   const { openModal } = useModal();
-  const task = taskList.tasks[cardIndex];
 
+  const task = taskList.tasks[cardIndex];
+  
   const {
     register,
     handleSubmit,
@@ -28,7 +29,7 @@ export function EditCardModal({ taskList, cardIndex }: Props) {
     resolver: zodResolver(createTaskSchema),
     defaultValues: task,
   });
-
+  
   const onSubmit = (data: TaskCreation) => {
     editTask(taskList.id, task.id, data);
     openModal('cardDetails', { taskList, cardIndex });

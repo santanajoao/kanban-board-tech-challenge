@@ -7,6 +7,7 @@ import { TaskList } from '@/types/task';
 import { FaArrowsAltH } from 'react-icons/fa';
 import { Title } from '../Title';
 import { dateStringToDate } from '@/utils/date';
+import { ButtonsContainer } from './CardForm';
 
 type Props = {
   taskList: TaskList;
@@ -43,7 +44,7 @@ export default function CardDetailsModal({ taskList, cardIndex }: Props) {
           <Title as="h2" variant="definition-small" className="mr-4 sm:mr-5">
             Priority
           </Title>
-          <PriorityLabel priority={task!.priority} />
+          <PriorityLabel className="text-sm" priority={task!.priority} />
         </section>
 
         <section className="flex items-center">
@@ -59,7 +60,7 @@ export default function CardDetailsModal({ taskList, cardIndex }: Props) {
         </section>
       </div>
 
-      <div className="mt-6 sm:mt-10 sm:gap-4 flex flex-col sm:flex-row gap-2 justify-end">
+      <ButtonsContainer>
         <Button
           variant="primary-fill-rounded"
           className="sm:w-44"
@@ -77,7 +78,7 @@ export default function CardDetailsModal({ taskList, cardIndex }: Props) {
         >
           Fechar
         </Button>
-      </div>
+      </ButtonsContainer>
     </article>
   );
 }

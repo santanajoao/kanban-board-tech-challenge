@@ -2,9 +2,9 @@ import { cn } from '@/utils/tailwind';
 import React, { ComponentProps } from 'react';
 
 const variants = {
-  'primary-fill-rounded': 'text-white text-sm uppercase rounded-full bg-primaryPurple border-2 border-primaryPurple',
+  'primary-fill-rounded': 'text-white text-sm uppercase rounded-full bg-primaryPurple border-2 border-primaryPurple focus:outline-secondaryPurple',
   'danger-outline-rounded': 'uppercase text-sm rounded-full text-primaryRed bg-transparent border-2 border-primaryRed',
-  'neutral-outline-rounded': 'uppercase text-sm rounded-full text-primaryGray bg-transparent border-2 border-primaryGray',
+  'neutral-outline-rounded': 'uppercase text-sm rounded-full text-primaryGray bg-transparent border-2 border-primaryGray focus:outline-secondaryPurple',
   'secondary-fill-rounded': 'text-white text-sm shadow-md rounded-full bg-secondaryPurple',
   'secondary-fill': 'text-white text-sm shadow-md rounded-lg bg-secondaryPurple',
 };
